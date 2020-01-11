@@ -6,12 +6,12 @@
  */
 namespace BasicApp\Page\Database\Seeds;
 
-class ConfigResetSeeder extends \BasicApp\Core\Seeder
+class PageResetSeeder extends \BasicApp\Core\Seeder
 {
 
     public function run()
     {
-        $this->db->table('posts')->truncate();
+        $this->db->table('pages')->truncate();
     }
 
 }
