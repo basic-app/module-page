@@ -6,8 +6,10 @@
  */
 use BasicApp\Helpers\Url;
 use BasicApp\Admin\AdminEvents;
+use BasicApp\System\SystemEvents;
 use BasicApp\System\Events\SystemResetEvent;
-use BasicApp\Page\Database\Seeds\ConfigResetSeeder;
+use BasicApp\Page\Database\Seeds\PageResetSeeder;
+use Config\Database;
 
 AdminEvents::onMainMenu(function($event)
 {
