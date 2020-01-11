@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * @author Basic App Dev Team <dev@basic-app.com>
+ * @license MIT
+ * @link http://basic-app.com
+ */
 $routes->add('page/(:any)', 'BasicApp\Page\Controllers\Page::view/$1');
 
 $routes->add('admin/page', 'BasicApp\Page\Controllers\Admin\Page::index');

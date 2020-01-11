@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * @author Basic App Dev Team <dev@basic-app.com>
+ * @license MIT
+ * @link http://basic-app.com
+ */
 use BasicApp\Page\Models\PageModel;
 use BasicApp\Helpers\Url;
 
