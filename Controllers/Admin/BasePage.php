@@ -11,11 +11,11 @@ use BasicApp\Page\Models\Admin\PageModel;
 abstract class BasePage extends \BasicApp\Admin\AdminCrudController
 {
 
-	protected $modelClass = PageModel::class;
+    protected $modelClass = PageModel::class;
 
-	protected $viewPath = 'BasicApp\Page\Views\Admin\Page';
+    protected $viewPath = 'BasicApp\Page\Views\Admin\Page';
 
-	protected $returnUrl = 'admin/page';
+    protected $returnUrl = 'admin/page';
 
     protected $orderBy = 'page_url ASC';
 

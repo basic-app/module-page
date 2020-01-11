@@ -14,14 +14,14 @@ abstract class BasePage extends \BasicApp\System\Controller
 
     protected $viewPath = 'BasicApp\Page\Views\Page';
 
-	public function view($url = 'index')
-	{
-		$pageModel = new PageModel;
+    public function view($url = 'index')
+    {
+        $pageModel = new PageModel;
 
-		$page = $pageModel->where('page_url', $url)->first();
+        $page = $pageModel->where('page_url', $url)->first();
 
-		if (!$page)
-		{
+        if (!$page)
+        {
             if ($url == 'index')
             {
                 $page = PageModel::getPage('index', true, [
@@ -34,7 +34,7 @@ abstract class BasePage extends \BasicApp\System\Controller
             {
                 throw new PageNotFoundException;
             }
-		}
+        }
 
         if (!$page->page_published)
         {
@@ -56,6 +56,6 @@ abstract class BasePage extends \BasicApp\System\Controller
         return $this->render($template, [
             'page' => $page
         ]);
-	}
+    }
 
 }
