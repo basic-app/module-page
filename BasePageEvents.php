@@ -7,13 +7,16 @@
 namespace BasicApp\Page;
 
 use BasicApp\Page\Events\PageTextEvent;
+use BasicApp\Page\Events\PageSeedEvent;
 
 abstract class BasePageEvents extends \CodeIgniter\Events\Events
 {
 
     const EVENT_PAGE_TEXT = 'ba:page_text';
 
-    public static function pageText($text)
+    const EVENT_SEED = 'ba:page_seed';
+
+    public static function text($text)
     {
         $event = new PageTextEvent;
 
@@ -26,9 +29,21 @@ abstract class BasePageEvents extends \CodeIgniter\Events\Events
         return $text;
     }
 
-    public static function onPageText($callback)
+    public static function seed()
+    {
+        $event = new PageSeedEvent;
+
+        static::trigger(static::EVENT_PAGE_SEED, $event);
+    }
+
+    public static function onText($callback)
     {
         static::on(static::EVENT_PAGE_TEXT, $callback);
     }
+
+    public static function onSeed($callback)
+    {
+        static::on(static::EVENT_PAGE_SEED, $callback);
+    }    
 
 }

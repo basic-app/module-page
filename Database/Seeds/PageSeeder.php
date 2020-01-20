@@ -7,6 +7,7 @@
 namespace BasicApp\Page\Database\Seeds;
 
 use BasicApp\Site\Models\PageModel;
+use BasicApp\Page\PageEvents;
 
 class PageSeeder extends \BasicApp\Core\Seeder
 {
@@ -29,6 +30,8 @@ class PageSeeder extends \BasicApp\Core\Seeder
             'page_text' => '<p>About page text.</p>',
             'page_published' => 1
         ]);
+
+        PageEvent::seed();
     }
 
 }
