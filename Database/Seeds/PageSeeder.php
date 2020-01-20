@@ -13,20 +13,22 @@ class PageSeeder extends \BasicApp\Core\Seeder
 
     public function run()
     {
-        if ($this->db->table('pages')->countAllResults() === 0)
+        if ($this->db->table('pages')->countAllResults() > 0)
         {
-            PageModel::getPage('index', true, [
-                'page_name' => 'Index',
-                'page_text' => '<p>Index page text.</p>',
-                'page_published' => 1
-            ]);
-
-            PageModel::getPage('about', true, [
-                'page_name' => 'About',
-                'page_text' => '<p>About page text.</p>',
-                'page_published' => 1
-            ]);
+            return;
         }
+
+        PageModel::getPage('index', true, [
+            'page_name' => 'Index',
+            'page_text' => '<p>Index page text.</p>',
+            'page_published' => 1
+        ]);
+
+        PageModel::getPage('about', true, [
+            'page_name' => 'About',
+            'page_text' => '<p>About page text.</p>',
+            'page_published' => 1
+        ]);
     }
 
 }
