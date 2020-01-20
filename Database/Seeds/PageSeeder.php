@@ -6,32 +6,24 @@
  */
 namespace BasicApp\Page\Database\Seeds;
 
-use BasicApp\Site\Models\PageModel;
-use BasicApp\Page\PageEvents;
+use BasicApp\Page\Models\PageModel;
 
 class PageSeeder extends \BasicApp\Core\Seeder
 {
 
     public function run()
     {
-        if ($this->db->table('pages')->countAllResults() > 0)
-        {
-            return;
-        }
-
         PageModel::getPage('index', true, [
             'page_name' => 'Index',
-            'page_text' => '<p>Index page text.</p>',
+            'page_text' => app_view('BasicApp\Page\Views\Seeds\index'),
             'page_published' => 1
         ]);
 
         PageModel::getPage('about', true, [
             'page_name' => 'About',
-            'page_text' => '<p>About page text.</p>',
+            'page_text' => app_view('BasicApp\Page\Views\Seeds\about'),
             'page_published' => 1
         ]);
-
-        PageEvent::seed();
     }
 
 }
