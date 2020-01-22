@@ -16,7 +16,7 @@ use BasicApp\Page\Controllers\Admin\Page as PageController;
 
 AdminEvents::onMainMenu(function($event)
 {
-    if (PageController::checkAccess())
+    if (service('admin')->can(PageController::class))
     {
         $event->items['site']['items']['pages'] = [
             'url'   => Url::createUrl('admin/page'),
