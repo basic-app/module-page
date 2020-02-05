@@ -5,5 +5,11 @@
         "psr-4": {
             "BasicApp\\Page\\" : ""
         }
+    },
+    "require": {
+        "basic-app/system": "*",
+        "basic-app/core": "*",
+        "basic-app/admin": "*",
+        "basic-app/site": "*"
     }
 }
