@@ -24,7 +24,7 @@ $adminTheme = service('adminTheme');
 
 echo $adminTheme->grid([
     'headers' => [
-        $model->getFieldLabel('page_id'),
+        ['class' => $adminTheme::GRID_HEADER_PRIMARY_KEY, 'content' => $model->getFieldLabel('page_id')],
         $model->getFieldLabel('page_created_at'),
         ['class' => $adminTheme::GRID_HEADER_LABEL, 'content' => $model->getFieldLabel('page_url')],
         $model->getFieldLabel('page_name'),
@@ -41,18 +41,9 @@ echo $adminTheme->grid([
                 $data->page_created_at,
                 $data->page_url,
                 $data->page_name,
-                [
-                    'class' => $adminTheme::GRID_CELL_BOOLEAN,
-                    'content' => $data->page_published
-                ],
-                [
-                    'class' => $adminTheme::GRID_CELL_BUTTON_UPDATE,
-                    'url' => Url::returnUrl('admin/page/update', ['id' => $data->page_id])
-                ],
-                [
-                    'class' => $adminTheme::GRID_CELL_BUTTON_DELETE,
-                    'url' => Url::returnUrl('admin/page/delete', ['id' => $data->page_id])
-                ]                
+                $data->page_published,
+                ['url' => Url::returnUrl('admin/page/update', ['id' => $data->page_id])],
+                ['url' => Url::returnUrl('admin/page/delete', ['id' => $data->page_id])]                
             ];
         }
     }
