@@ -22,27 +22,39 @@ $this->data['actionMenu'][] = [
 
 $adminTheme = service('adminTheme');
 
-echo $adminTheme->table([
-    'labels' => [
+echo $adminTheme->grid([
+    'headers' => [
         $model->getFieldLabel('page_id'),
         $model->getFieldLabel('page_created_at'),
-        $model->getFieldLabel('page_url'),
+        ['class' => $adminTheme::GRID_HEADER_LABEL, 'content' => $model->getFieldLabel('page_url')],
         $model->getFieldLabel('page_name'),
-        $model->getFieldLabel('page_published'),
-        '',
-        ''
+        ['class' => $adminTheme::GRID_HEADER_BOOLEAN, 'content' => $model->getFieldLabel('page_published')],
+        ['class' => $adminTheme::GRID_HEADER_BUTTON_UPDATE],
+        ['class' => $adminTheme::GRID_HEADER_BUTTON_DELETE]
     ],
-    'elements' => $elements,
-    'columns' => function($model) {
-        return [
-            $this->createColumn(['field' => 'page_id'])->displaySmall()->number(),
-            $this->createColumn(['field' => 'page_created_at'])->displayMedium(),
-            $this->createColumn(['field' => 'page_url'])->success()->displaySmall(),
-            $this->createColumn(['field' => 'page_name']),
-            $this->createBooleanColumn(['field' => 'page_published'])->displayLarge(),
-            $this->createUpdateLinkColumn(['action' => 'admin/page/update']),
-            $this->createDeleteLinkColumn(['action' => 'admin/page/delete'])
-        ];
+    'items' => function() use ($elements, $adminTheme) {
+        
+        foreach($elements as $data)
+        {
+            yield [
+                $data->page_id,
+                $data->page_created_at,
+                $data->page_url,
+                $data->page_name,
+                [
+                    'class' => $adminTheme::GRID_CELL_BOOLEAN,
+                    'content' => $data->page_published
+                ],
+                [
+                    'class' => $adminTheme::GRID_CELL_BUTTON_UPDATE,
+                    'url' => Url::returnUrl('admin/page/update', ['id' => $data->page_id])
+                ],
+                [
+                    'class' => $adminTheme::GRID_CELL_BUTTON_DELETE,
+                    'url' => Url::returnUrl('admin/page/delete', ['id' => $data->page_id])
+                ]                
+            ];
+        }
     }
 ]);
 
