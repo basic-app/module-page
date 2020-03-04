@@ -4,8 +4,10 @@
  * @license MIT
  * @link http://basic-app.com
  */
+use BasicApp\Helpers\Url;
+
 $this->data['title'] = t('admin', 'Pages');
 
 $this->data['mainMenu']['site']['items']['pages']['active'] = true;
 
-$this->data['breadcrumbs'][] = ['label' => $this->data['title'], 'url' => site_url('admin/page')];
+$this->data['breadcrumbs'][] = ['label' => $this->data['title'], 'url' => Url::createUrl('admin/page')];
