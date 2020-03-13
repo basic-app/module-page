@@ -38,3 +38,8 @@ SystemEvents::onSeed(function(SystemSeedEvent $event)
 
     $seeder->call(PageSeeder::class);
 });
+
+SystemEvents::onPreSystem(function()
+{
+    helper('page');
+});
