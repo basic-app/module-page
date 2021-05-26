@@ -10,6 +10,7 @@
         "basic-app/system": "*",
         "basic-app/core": "*",
         "basic-app/admin": "*",
-        "basic-app/site": "*"
+        "basic-app/site": "*",
+        "basic-app/migration": "*"
     }
 }

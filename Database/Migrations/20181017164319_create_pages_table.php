@@ -6,7 +6,7 @@
  */
 namespace BasicApp\Page\Database\Migrations;
 
-class Migration_create_pages_table extends \BasicApp\Core\Migration
+class Migration_create_pages_table extends \BasicApp\Migration\BaseMigration
 {
 
     public $tableName = 'pages';
