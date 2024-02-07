@@ -13,6 +13,7 @@ use BasicApp\Page\Database\Seeds\PageResetSeeder;
 use BasicApp\Page\Database\Seeds\PageSeeder;
 use Config\Database;
 use BasicApp\Page\Controllers\Admin\Page as PageController;
+use CodeIgniter\Events\Events;
 
 AdminEvents::onMainMenu(function($event)
 {
@@ -39,7 +40,7 @@ SystemEvents::onSeed(function(SystemSeedEvent $event)
     $seeder->call(PageSeeder::class);
 });
 
-SystemEvents::onPreSystem(function()
+Events::on('pre_system', function() 
 {
     helper('page');
 });
