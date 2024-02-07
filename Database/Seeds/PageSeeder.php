@@ -15,13 +15,13 @@ class PageSeeder extends \BasicApp\Core\Seeder
     {
         PageModel::getPage('index', true, [
             'page_name' => 'Index',
-            'page_text' => app_view('BasicApp\Page\Views\Seeds\index'),
+            'page_text' => '<p>Index page text.</p>',
             'page_published' => 1
         ]);
 
         PageModel::getPage('about', true, [
             'page_name' => 'About',
-            'page_text' => app_view('BasicApp\Page\Views\Seeds\about'),
+            'page_text' => '<p>About page text.</p>',
             'page_published' => 1
         ]);
     }
