@@ -17,13 +17,10 @@ use CodeIgniter\Events\Events;
 
 AdminEvents::onMainMenu(function($event)
 {
-    if (service('admin')->can(PageController::class))
-    {
-        $event->items['site']['items']['pages'] = [
-            'url'   => Url::createUrl('admin/page'),
-            'label' => t('admin.menu', 'Pages')
-        ];
-    }
+    $event->items['site']['items']['pages'] = [
+        'url'   => Url::createUrl('admin/page'),
+        'label' => t('admin.menu', 'Pages')
+    ];
 });
 
 SystemEvents::onReset(function(SystemResetEvent $event)
