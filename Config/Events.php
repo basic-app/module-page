@@ -14,8 +14,9 @@ use BasicApp\Page\Database\Seeds\PageSeeder;
 use Config\Database;
 use BasicApp\Page\Controllers\Admin\Page as PageController;
 use CodeIgniter\Events\Events;
+use BasicApp\AdminMenu\AdminMenuEvents;
 
-AdminEvents::onMainMenu(function($event)
+AdminMenuEvents::onMainMenu(function($event)
 {
     $event->items['site']['items']['pages'] = [
         'url'   => Url::createUrl('admin/page'),
