@@ -12,7 +12,7 @@ use CodeIgniter\Exceptions\PageNotFoundException;
 abstract class BasePage extends \BasicApp\Site\SiteController
 {
 
-    protected $viewPath = 'BasicApp\Page\Views\Page';
+    protected $viewPath = 'BasicApp\Page';
 
     protected function _createIndexPage()
     {
@@ -44,7 +44,7 @@ abstract class BasePage extends \BasicApp\Site\SiteController
             throw new PageNotFoundException;
         }
 
-        if (is_file(APPPATH . 'Views/BasicApp/Page/Page/' . $page->page_url . '.php'))
+        if (is_file(APPPATH . 'Views/BasicApp/Page/' . $page->page_url . '.php'))
         {
             $template = $page->page_url;
         }
