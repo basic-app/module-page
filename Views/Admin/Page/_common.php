@@ -6,8 +6,8 @@
  */
 use BasicApp\Helpers\Url;
 
-$this->data['title'] = t('admin', 'Pages');
+$this->tempData['title'] = t('admin', 'Pages');
 
-$this->data['mainMenu']['site']['items']['pages']['active'] = true;
+$this->tempData['mainMenu']['site']['items']['pages']['active'] = true;
 
-$this->data['breadcrumbs'][] = ['label' => $this->data['title'], 'url' => Url::createUrl('admin/page')];
+$this->tempData['breadcrumbs'][] = ['label' => $this->tempData['title'], 'url' => Url::createUrl('admin/page')];
