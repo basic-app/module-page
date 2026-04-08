@@ -19,6 +19,7 @@ abstract class BasePageModel extends \BasicApp\Page\Models\PageModel
 	];
 
 	protected $validationRules = [
+        'page_id' => 'permit_empty|is_natural_no_zero',
 		'page_name' => 'not_special_chars|max_length[255]',
 		'page_url' => 'not_special_chars|max_length[255]|is_unique[pages.page_url,page_id,{page_id}]|required',
 		'page_text' => 'max_length[65535]',
