@@ -8,54 +8,27 @@ namespace BasicApp\Page\Controllers;
 
 use BasicApp\Page\Models\PageModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
+use App\Controllers\BaseController;
 
-abstract class BasePage extends \BasicApp\Site\SiteController
+abstract class BasePage extends BaseController
 {
-
     protected $viewPath = 'BasicApp\Page';
 
-    protected function _createIndexPage()
-    {
-        return PageModel::getPage('index', true, [
-            'page_name' => 'Index', 
-            'page_text' => app_view('BasicApp\Page\Views\_default-index-page'),
-            'page_published' => 1
-        ]);
-    }
+    protected $layout = false;
 
     public function view($url = 'index')
     {
-        $pageModel = new PageModel;
+        $pageModel = model(PageModel::class);
 
         $page = $pageModel->where('page_url', $url)->first();
 
-        if (!$page)
-        {
-            if ($url != 'index')
-            {
-                throw new PageNotFoundException;
-            }
-
-            $page = $this->_createIndexPage();
-        }
-
-        if (!$page->page_published && ($url != 'index'))
+        if (!$page || !$page->page_published)
         {
             throw new PageNotFoundException;
         }
 
-        if (is_file(APPPATH . 'Views/BasicApp/Page/' . $page->page_url . '.php'))
-        {
-            $template = $page->page_url;
-        }
-        else
-        {
-            $template = '_view';
-        }
-
-        return $this->render($template, [
+        return view('BasicApp\Page\_view', [
             'page' => $page
         ]);
     }
-
 }

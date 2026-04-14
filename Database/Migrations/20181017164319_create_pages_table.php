@@ -8,7 +8,6 @@ namespace BasicApp\Page\Database\Migrations;
 
 class Migration_create_pages_table extends \BasicApp\Migration\BaseMigration
 {
-
     public $tableName = 'pages';
 
     public function up()
@@ -20,11 +19,13 @@ class Migration_create_pages_table extends \BasicApp\Migration\BaseMigration
             'page_url' => $this->string()->unique()->toArray(),
             'page_name' => $this->string()->toArray(),
             'page_text' => $this->text()->toArray(),
-            'page_published' => $this->boolean()->toArray()
+            'page_published' => $this->boolean()->toArray(),
+            'page_title' => $this->string()->toArray(),
+            'page_keywords' => $this->string()->toArray(),
+            'page_description' => $this->string()->toArray()
         ]);
 
         $this->forge->addKey('page_id', true);
-
         $this->forge->addKey('page_published');
 
         $this->forge->createTable($this->tableName);
@@ -34,5 +35,4 @@ class Migration_create_pages_table extends \BasicApp\Migration\BaseMigration
     {
         $this->forge->dropTable($this->tableName);
     }
-
 }
