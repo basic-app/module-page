@@ -20,7 +20,7 @@ abstract class BasePage extends BaseController
     {
         $pageModel = model(PageModel::class);
 
-        $page = $pageModel->where('page_url', $url)->first();
+        $page = $pageModel->where('page_uid', $url)->first();
 
         if (!$page || !$page->page_published)
         {

@@ -16,7 +16,7 @@ class Migration_create_pages_table extends \BasicApp\Migration\BaseMigration
             'page_id' => $this->primaryKey()->toArray(),
             'page_created_at' => $this->created()->toArray(),
             'page_updated_at' => $this->updated()->toArray(),
-            'page_url' => $this->string()->unique()->toArray(),
+            'page_uid' => $this->string()->unique()->toArray(),
             'page_name' => $this->string()->toArray(),
             'page_text' => $this->text()->toArray(),
             'page_published' => $this->boolean()->toArray(),

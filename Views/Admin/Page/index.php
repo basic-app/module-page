@@ -30,7 +30,7 @@ echo $adminTheme->grid([
     'headers' => [
         ['class' => $adminTheme::GRID_HEADER_PRIMARY_KEY, 'content' => $model->getFieldLabel('page_id')],
         $model->getFieldLabel('page_created_at'),
-        ['class' => $adminTheme::GRID_HEADER_LABEL, 'content' => $model->getFieldLabel('page_url')],
+        ['class' => $adminTheme::GRID_HEADER_LABEL, 'content' => $model->getFieldLabel('page_uid')],
         $model->getFieldLabel('page_name'),
         ['class' => $adminTheme::GRID_HEADER_BOOLEAN, 'content' => $model->getFieldLabel('page_published')],
         ['class' => $adminTheme::GRID_HEADER_BUTTON_UPDATE],
@@ -43,7 +43,7 @@ echo $adminTheme->grid([
             yield [
                 $data->page_id,
                 $data->page_created_at,
-                $data->page_url,
+                $data->page_uid,
                 $data->page_name,
                 $data->page_published,
                 ['url' => Url::returnUrl('admin/page/update', ['id' => $data->page_id])],

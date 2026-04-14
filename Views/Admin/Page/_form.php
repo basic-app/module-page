@@ -12,7 +12,7 @@ echo $form->open();
 
 echo $form->inputGroup($data, 'page_name');
 
-echo $form->inputGroup($data, 'page_url');
+echo $form->inputGroup($data, 'page_uid');
 
 echo $form->editorTextareaGroup($data, 'page_text', ['rows' => 30]);
 

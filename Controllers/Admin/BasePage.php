@@ -17,7 +17,7 @@ abstract class BasePage extends \BasicApp\Admin\AdminCrudController
 
     protected $returnUrl = 'admin/page';
 
-    protected $orderBy = 'page_url ASC';
+    protected $orderBy = 'page_uid ASC';
 
     protected $layout = null;
 

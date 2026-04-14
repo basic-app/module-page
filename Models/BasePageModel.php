@@ -19,7 +19,7 @@ abstract class BasePageModel extends \BasicApp\Core\Model
 
 	protected $fieldLabels = [
 		'page_id' => 'ID',
-		'page_url' => 'URL',
+		'page_uid' => 'URL',
 		'page_name' => 'Name',
 		'page_created_at' => 'Created',
 		'page_updated_at' => 'Updated',
@@ -39,7 +39,7 @@ abstract class BasePageModel extends \BasicApp\Core\Model
 
     public static function getPage(string $url, bool $create = false, array $params = [])
     {
-        return static::getEntity(['page_url' => $url], $create, $params);
+        return static::getEntity(['page_uid' => $url], $create, $params);
     }
 
     public static function setPageMetaTags($page, $view = null)

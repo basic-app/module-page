@@ -3,7 +3,7 @@
 $this->setVar('title', $page->page_name);
 $this->setVar('description', $page->page_description);
 $this->setVar('keywords', $page->page_keywords);
-$this->setVar('navMenuActiveItem', $page->page_url);
+$this->setVar('navMenuActiveItem', $page->page_uid);
 
 $this->extend('BasicApp\Site\layouts/app');
 
